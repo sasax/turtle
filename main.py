@@ -25,7 +25,8 @@ wn = turtle.Screen()
 
 # Array welches zu sortieren ist
 xs = [3, 6, 2, 5, 0, 9, 10, 7, 1, 4, 8]
-
+xs.append(7)
+xs.append(2)
 border = 10
 
 
@@ -81,7 +82,7 @@ def drawGraph(xs):
                 linear_gradient(len(xs))[xs[i]])
     turtle.update()
 
-    time.sleep(1.5)
+    time.sleep(0.3)
 
 
     # löscht die Oberfläche
@@ -102,56 +103,15 @@ def swapPositions(list, pos1, pos2):
     return list
 
 def bubble_sort(array):
+    n = len(array)
 
-    drawGraph(array)
-    swapPositions(array, 1, 2)
-    drawGraph(array)
-    swapPositions(array, 2, 3)
-    drawGraph(array)
-    swapPositions(array, 3, 4)
-    drawGraph(array)
-    swapPositions(array, 6, 7)
-    drawGraph(array)
-    swapPositions(array, 7, 8)
-    drawGraph(array)
-    swapPositions(array, 8, 9)
-    drawGraph(array)
-    swapPositions(array, 9, 10)
-    drawGraph(array)
-    swapPositions(array, 0, 1)
-    drawGraph(array)
-    swapPositions(array, 2, 3)
-    drawGraph(array)
-    swapPositions(array, 5, 6)
-    drawGraph(array)
-    swapPositions(array, 6, 7)
-    drawGraph(array)
-    swapPositions(array, 7, 8)
-    drawGraph(array)
-    swapPositions(array, 8, 9)
-    drawGraph(array)
-    swapPositions(array, 1, 2)
-    drawGraph(array)
-    swapPositions(array, 5, 6)
-    drawGraph(array)
-    swapPositions(array, 6, 7)
-    drawGraph(array)
-    swapPositions(array, 0, 1)
-    drawGraph(array)
-    swapPositions(array, 4, 5)
-    drawGraph(array)
-    swapPositions(array, 5, 6)
-    drawGraph(array)
-    swapPositions(array, 3, 4)
-    drawGraph(array)
-    swapPositions(array, 4, 5)
-    drawGraph(array)
-    swapPositions(array, 2, 3)
-    drawGraph(array)
-    swapPositions(array, 1, 2)
-    drawGraph(array)
+    for i in range(n):
+        for j in range(n - 1 - i):
+            if array[j] <= array[j + 1]: # (== !==) < > >= <=
+                swapPositions(array, j, j + 1)
+            drawGraph(array)
 
 bubble_sort(xs)
 
 #
-wn.exitonclick()
+#wn.exitonclick()
